@@ -7,8 +7,8 @@
     <img src="{{ asset('/img/fes.jfif')}}" alt="otra imagen" class="w-28 m-10 object-contain">
 </div>
    
-<div class="flex justify-center items-center h-screen">
-    <div class="bg-white shadow-md rounded-lg p-8 h-auto" style="width: 500px;">
+<div class="flex justify-center items-center ">
+    <div class="bg-white shadow-md rounded-lg p-8" style="width: 500px;">
         <div class="flex justify-center">
             <h1 class="text-2xl font-bold">¡Bienvenido!</h1>
 
