@@ -40,21 +40,22 @@ return new class extends Migration
 
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->date('date_test');
-            $table->string('school_shift');
-            $table->string('classroom');   
-            $table->dateTime('start');   
-            $table->dateTime('end'); 
-            $table->string('introduction'); 
-            $table->longText('general_criteria');
-            $table->longText('documents'); 
-            $table->longText('works');
-            $table->longText('work_criteria');  
-            $table->longText('work_requeriment');  
-            $table->longText('evaluation_criteria'); 
-            $table->longText('theme_references'); 
-            $table->longText('suggestion'); 
-            $table->longText('other'); 
+            $table->string('name');
+            $table->date('date_test')->nullable();
+            $table->string('school_shift')->nullable();
+            $table->string('classroom')->nullable();   
+            $table->dateTime('start')->nullable();   
+            $table->dateTime('end')->nullable(); 
+            $table->string('introduction')->nullable(); 
+            $table->longText('general_criteria')->nullable();
+            $table->longText('documents')->nullable(); 
+            $table->longText('works')->nullable();
+            $table->longText('work_criteria')->nullable();  
+            $table->longText('work_requeriment')->nullable();  
+            $table->longText('evaluation_criteria')->nullable(); 
+            $table->longText('theme_references')->nullable(); 
+            $table->longText('suggestion')->nullable(); 
+            $table->longText('other')->nullable(); 
             $table->timestamps();
         });
 

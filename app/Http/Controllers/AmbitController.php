@@ -14,7 +14,7 @@ class AmbitController extends Controller
         $create_ambit->period_id =1;
         $create_ambit->save();
 
-        return 1;
+        return 1;   
 
     }
 }
