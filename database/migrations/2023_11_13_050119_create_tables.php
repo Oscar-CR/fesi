@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->unsignedBigInteger('period_id');
+            $table->tinyInteger('status')->default(1);
             $table->foreign('period_id')->references('id')->on('periods');
             $table->timestamps();
         });

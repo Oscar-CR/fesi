@@ -141,6 +141,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+
+
+
+
         Theme::create([
             'name' => 'Conductual, Cognitivo Conductual e Interconductual',
         ]);
@@ -153,20 +157,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Psicoanálisis y Teoría Social',
         ]);
 
-        AmbitHasTheme::create([
-            'theme_id' => 1,
-            'ambit_id' => 1,
-        ]);
 
-        AmbitHasTheme::create([
-            'theme_id' => 1,
-            'ambit_id' => 2,
-        ]);
-
-        AmbitHasTheme::create([
-            'theme_id' => 1,
-            'ambit_id' => 3,
-        ]);
 
 
 
@@ -189,6 +180,122 @@ class DatabaseSeeder extends Seeder
         Theme::create([
             'name' => 'Sociocultural y de la Actividad',
         ]);
+
+
+
+        
+
+        Theme::create([
+            'name' => 'Complejidad y Transdisciplina',
+        ]);
+
+        Theme::create([
+            'name' => 'Conductual, Cognitivo Conductual e Interconductual',
+        ]);
+
+        Theme::create([
+            'name' => 'Sociocultural y de la Actividad',
+        ]);
+
+
+
+        Theme::create([
+            'name' => 'Conductual, Cognitivo Conductual e Interconductual',
+        ]);
+
+        Theme::create([
+            'name' => 'Existencial Humanista',
+        ]);
+
+        Theme::create([
+            'name' => 'Psicoanálisis y Teoría Social',
+        ]);
+
+
+
+        Theme::create([
+            'name' => 'Complejidad y Transdisciplina',
+        ]);
+
+        Theme::create([
+            'name' => 'Conductual, Cognitivo Conductual e Interconductual',
+        ]);
+
+        Theme::create([
+            'name' => 'Psicoanálisis y Teoría Social',
+        ]);
+
+        Theme::create([
+            'name' => 'Sociocultural y de la Actividad',
+        ]);
+
+
+
+
+        Theme::create([
+            'name' => 'Complejidad y Transdisciplina',
+        ]);
+
+        Theme::create([
+            'name' => 'Conductual, Cognitivo Conductual e Interconductual',
+        ]);
+
+        Theme::create([
+            'name' => 'Existencial Humanista',
+        ]);
+
+        Theme::create([
+            'name' => 'Psicoanálisis y Teoría Social',
+        ]);
+
+
+
+        
+        Theme::create([
+            'name' => 'Módulo aplicado',
+        ]);
+
+
+
+
+        Theme::create([
+            'name' => 'Método metodológico',
+        ]);
+
+
+
+        Theme::create([
+            'name' => 'Método teórico',
+        ]);
+
+
+
+        Theme::create([
+            'name' => 'Plan anterior',
+        ]);
+
+
+
+
+
+        AmbitHasTheme::create([
+            'theme_id' => 1,
+            'ambit_id' => 1,
+        ]);
+
+        AmbitHasTheme::create([
+            'theme_id' => 1,
+            'ambit_id' => 2,
+        ]);
+
+        AmbitHasTheme::create([
+            'theme_id' => 1,
+            'ambit_id' => 3,
+        ]);
+
+
+
+        
 
         AmbitHasTheme::create([
             'theme_id' => 2,
@@ -217,19 +324,9 @@ class DatabaseSeeder extends Seeder
 
 
 
-        Theme::create([
-            'name' => 'Complejidad y Transdisciplina',
-        ]);
+       
 
-        Theme::create([
-            'name' => 'Conductual, Cognitivo Conductual e Interconductual',
-        ]);
-
-        Theme::create([
-            'name' => 'Sociocultural y de la Actividad',
-        ]);
-
-        AmbitHasTheme::create([
+       /*  AmbitHasTheme::create([
             'theme_id' => 3,
             'ambit_id' => 9,
         ]);
@@ -246,17 +343,8 @@ class DatabaseSeeder extends Seeder
 
 
 
-        Theme::create([
-            'name' => 'Conductual, Cognitivo Conductual e Interconductual',
-        ]);
+        
 
-        Theme::create([
-            'name' => 'Existencial Humanista',
-        ]);
-
-        Theme::create([
-            'name' => 'Psicoanálisis y Teoría Social',
-        ]);
 
         AmbitHasTheme::create([
             'theme_id' => 4,
@@ -266,31 +354,16 @@ class DatabaseSeeder extends Seeder
         AmbitHasTheme::create([
             'theme_id' => 4,
             'ambit_id' => 13,
-        ]);
+        ]); */
 
-        AmbitHasTheme::create([
+       /*  AmbitHasTheme::create([
             'theme_id' => 4,
             'ambit_id' => 14,
         ]);
 
 
 
-        Theme::create([
-            'name' => 'Complejidad y Transdisciplina',
-        ]);
-
-        Theme::create([
-            'name' => 'Conductual, Cognitivo Conductual e Interconductual',
-        ]);
-
-        Theme::create([
-            'name' => 'Psicoanálisis y Teoría Social',
-        ]);
-
-        Theme::create([
-            'name' => 'Sociocultural y de la Actividad',
-        ]);
-
+        
         AmbitHasTheme::create([
             'theme_id' => 5,
             'ambit_id' => 15,
@@ -313,21 +386,7 @@ class DatabaseSeeder extends Seeder
 
 
 
-        Theme::create([
-            'name' => 'Complejidad y Transdisciplina',
-        ]);
-
-        Theme::create([
-            'name' => 'Conductual, Cognitivo Conductual e Interconductual',
-        ]);
-
-        Theme::create([
-            'name' => 'Existencial Humanista',
-        ]);
-
-        Theme::create([
-            'name' => 'Psicoanálisis y Teoría Social',
-        ]);
+       
 
         AmbitHasTheme::create([
             'theme_id' => 6,
@@ -350,9 +409,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        Theme::create([
-            'name' => 'Módulo aplicado',
-        ]);
 
         AmbitHasTheme::create([
             'theme_id' => 7,
@@ -361,9 +417,6 @@ class DatabaseSeeder extends Seeder
         
 
 
-        Theme::create([
-            'name' => 'Método metodológico',
-        ]);
 
         AmbitHasTheme::create([
             'theme_id' => 8,
@@ -371,9 +424,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        Theme::create([
-            'name' => 'Método teórico',
-        ]);
+        
+
 
         AmbitHasTheme::create([
             'theme_id' => 9,
@@ -381,14 +433,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        Theme::create([
-            'name' => 'Plan anterior',
-        ]);
+        
 
         AmbitHasTheme::create([
             'theme_id' => 10,
             'ambit_id' => 26,
-        ]);
+        ]); */
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
