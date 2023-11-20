@@ -10,4 +10,8 @@ class Theme extends Model
     use HasFactory;
 
     public $table = 'themes';
+
+    public function themeHasCourse() {
+        return $this->hasMany(ThemeHasCourse::class, 'course_id');
+    }
 }

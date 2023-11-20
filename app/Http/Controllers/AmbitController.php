@@ -18,4 +18,12 @@ class AmbitController extends Controller
         ->with('success', 'Ambito agregado satisfactoriamente');
 
     }
+
+    public function ambitDetail($id) {
+        
+        $ambit = Ambit::where('id', $id)->get()->first();
+        
+        return view('ambit.index', compact('ambit'));
+
+    }
 }

@@ -5,7 +5,7 @@
 <div class="container mx-auto mt-4 w-full">
 
     <div class="bg-white rounded-lg shadow-lg p-6">
-        <h1 class="text-2xl font-bold mb-12">Criterios para Aplicación de Exámenes Extraordinarios </h1>
+        <h1 class="text-2xl font-bold mb-12">{{ $ambit->name}} </h1>
   
         @if (session()->has('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -19,7 +19,7 @@
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
-                    <form method="POST" action="{{ route('ambit.store') }}" class="mt-4">
+                    <form method="POST" action="" class="mt-4">
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -62,18 +62,38 @@
                 Agregar nuevo ámbito
             </button>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mt-8">
-            @foreach($ambits as $ambit)
-                <a href="{{ route('ambit.detail', ['id' => $ambit->id]) }}">
-                    <div class="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
-                        <img class="w-full" src="{{ asset('/img/brain.jpg')}}" alt="Imagen">
-                        <div class="px-4 py-2">
-                            <p class="text-gray-700 text-base font-bold">{{ strtoupper($ambit->name) }}</p>
+        <div class="w-full">
+         
+
+        @if($ambit->ambitHasTheme != null)
+
+            @foreach($ambit->ambitHasTheme as $theme)
+
+               
+                <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
+                    <h2 id="accordion-flush-heading-{{$theme->id}}">
+                        <button type="button" class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3" data-accordion-target="#accordion-flush-body-{{$theme->id}}" aria-expanded="true" aria-controls="accordion-flush-body-{{$theme->id}}">
+                        <span> {{ $theme->theme->name }}</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                        </button>
+                    </h2>
+
+                    <div id="accordion-flush-body-{{$theme->id}}" class="hidden" aria-labelledby="accordion-flush-heading-{{$theme->id}}">
+                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                        @foreach($theme->ambit  as $ambit)
+                            {{ $ambit}}
+                        @endforeach
                         </div>
                     </div>
-                </a>
+                
+                </div>
                 
             @endforeach
+            
+
+        @endif
         </div>
 
     </div>

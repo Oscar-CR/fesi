@@ -10,4 +10,11 @@ class Ambit extends Model
     use HasFactory;
     
     public $table = 'ambits';
+
+    public function ambitHasTheme()
+    {
+        return $this->hasMany(AmbitHasTheme::class, 'ambit_id');
+    }
+
+    
 }

@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
 
     Route::post('/ambit/store', [AmbitController::class, 'store'])->name('ambit.store');
+    Route::get('/ambit/detail/{id}', [AmbitController::class, 'ambitDetail'])->name('ambit.detail');
 
 
 
