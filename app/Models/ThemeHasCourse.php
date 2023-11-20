@@ -10,4 +10,9 @@ class ThemeHasCourse extends Model
     use HasFactory;
 
     public $table = 'theme_has_course';
+
+    public function course() {
+
+        return $this->belongsTo(Course::class, 'course_id');
+    }
 }

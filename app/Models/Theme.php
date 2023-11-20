@@ -12,6 +12,7 @@ class Theme extends Model
     public $table = 'themes';
 
     public function themeHasCourse() {
-        return $this->hasMany(ThemeHasCourse::class, 'course_id');
+
+        return $this->hasMany(ThemeHasCourse::class, 'theme_id');
     }
 }
