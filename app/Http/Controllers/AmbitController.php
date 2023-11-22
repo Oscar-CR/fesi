@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ambit;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class AmbitController extends Controller
@@ -24,6 +25,14 @@ class AmbitController extends Controller
         $ambit = Ambit::where('id', $id)->get()->first();
         
         return view('ambit.index', compact('ambit'));
+
+    }
+
+    public function ambitDetailCourse($id) {
+
+        $course = Course::where('id', $id)->get()->first();
+
+        return view('ambit.course', compact('course'));
 
     }
 }
