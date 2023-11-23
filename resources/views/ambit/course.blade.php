@@ -6,8 +6,125 @@
 
     <div class="bg-white rounded-lg shadow-lg p-6 ">
 
+    <p class="font-bold text-2xl">
         {{ $course->name }}
+    </p>
         
+        
+
+        <br>
+
+        <form action="{{ route('ambit.update.course', $course->id) }}" method="POST" class="bg-white p-6">
+            @csrf
+            @method('POST')
+
+           
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="sonodal1" class="block mb-2  font-bold mb-2">Sinodal 1:</label>
+                    <input type="text" id="sonodal1" name="sonodal1" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                </div>
+                <div>
+                    <label for="sonodal2" class="block mb-2  font-bold mb-2">Correo sinodal 1:</label>
+                    <input type="text" id="sonodal1" name="sonodal1" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                </div>
+
+                <div>
+                    <label for="sonodal2" class="block mb-2  font-bold mb-2">Sinodal 2 (opcional):</label>
+                    <input type="text" id="sonodal2" name="sonodal2" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                </div>
+                <div>
+                    <label for="sonodal2" class="block mb-2  font-bold mb-2">Correo sinodal 1 (opcional):</label>
+                    <input type="text" id="sonodal2" name="sonodal2" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                </div>
+
+                <div>
+                    <label for="sonodal3" class="block mb-2  font-bold mb-2">Sinodal 3 (opcional):</label>
+                    <input type="text" id="sonodal3" name="sonodal3" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                </div>
+                <div>
+                    <label for="sonodal3" class="block mb-2  font-bold mb-2">Correo sinodal 3 :</label>
+                    <input type="text" id="sonodal3" name="sonodal3" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                </div>
+
+                
+
+                <div class="mt-10">
+                    <div class="flex">
+                        <div class="w-1/2  pr-4">
+                            <label for="date_test" class="block mb-2  font-bold mb-2 ">Fecha de examen:</label>
+                            <input type="date" id="date_test" name="date_test" value="{{ $course->date_test }}" class="w-full rounded-md px-4 py-2">
+                        </div>
+                        <div class="w-1/2 ">
+                            <label for="school_shift" class="block  font-bold mb-2">Turno de examen:</label>
+                            <input type="text" id="school_shift" name="school_shift" value="{{ $course->school_shift }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                        </div>
+                    </div>
+                </div>
+                <div  class="mt-10">
+                    <div class="flex">
+                        <div class="w-1/3 pr-4">
+                            <label for="classroom" class="block  font-bold mb-2">Aula de examen :</label>
+                            <input type="text" id="classroom" name="classroom" value="{{ $course->classroom }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                        </div>
+                        <div class="w-1/3 pr-4">
+                            <label for="start" class="block  font-bold mb-2">Horario inicio:</label>
+                            <input type="datetime-local" id="start" name="start" value="{{ \Carbon\Carbon::parse($course->start)->format('Y-m-d\TH:i') }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                        </div>
+                        <div class="w-1/3">
+                            <label for="end" class="block text-lg font-bold mb-2">Horario fin:</label>
+                            <input type="datetime-local" id="end" name="end" value="{{ \Carbon\Carbon::parse($course->end)->format('Y-m-d\TH:i') }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="introduction" class="block font-bold mb-2">Breve introducción (opcional) :</label>
+                    <input type="text" id="introduction" name="introduction" value="{{ $course->introduction }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                </div>
+                <div>
+                    <label for="general_criteria" class="block font-bold mb-2">Criterios generales para derecho a examen:</label>
+                    <textarea id="general_criteria" name="general_criteria" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->general_criteria }}</textarea>
+                </div>
+                <div>
+                    <label for="documents" class="block font-bold mb-2">Documentos a entregar (Comprobante de inscripción, identificación oficial, otros) :</label>
+                    <textarea id="documents" name="documents" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->documents }}</textarea>
+                </div>
+                <div>
+                    <label for="works" class="block font-bold mb-2">Trabajos previos a entregar (Opcional):</label>
+                    <textarea id="works" name="works" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->works }}</textarea>
+                </div>
+                <div>
+                    <label for="work_criteria" class="block font-bold mb-2">Criterios de trabajos previos a entregar (Opcional en relación con el punto anterior):</label>
+                    <textarea id="work_criteria" name="work_criteria" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->work_criteria }}</textarea>
+                </div>
+                <div>
+                    <label for="work_requeriment" class="block font-bold mb-2">Especificar la forma de entregar los trabajos previos (Opcional en relación con el punto anterior: Por correo o en físico el día del examen):</label>
+                    <textarea id="work_requeriment" name="work_requeriment" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->work_requeriment }}</textarea>
+                </div>
+                <div>
+                    <label for="evaluation_criteria" class="block font-bold mb-2">Criterios de evaluación del examen extraordinario  a presentar:</label>
+                    <textarea id="evaluation_criteria" name="evaluation_criteria" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->evaluation_criteria }}</textarea>
+                </div>
+                <div>
+                    <label for="theme_references" class="block font-bold mb-2">Temas y referencias a consultar para preparar la presentación del examen extraordinario:</label>
+                    <textarea id="theme_references" name="theme_references" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->theme_references }}</textarea>
+                </div>
+                <div>
+                    <label for="suggestion" class="block font-bold mb-2">Sugerencias para la presentación del examen extraordinario (Opcional):</label>
+                    <textarea id="suggestion" name="suggestion" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->suggestion }}</textarea>
+                </div>
+                <div>
+                    <label for="other" class="block font-bold mb-2">Otros elementos que se consideren importantes para que el alumnado presente el extraordinario:</label>
+                    <textarea id="other" name="other" class="w-full border-gray-300 rounded-md px-4 py-2">{{ $course->other }}</textarea>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2">Guardar</button>
+            </div>
+        </form>
 
 
     </div>

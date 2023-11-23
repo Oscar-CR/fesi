@@ -35,4 +35,17 @@ class AmbitController extends Controller
         return view('ambit.course', compact('course'));
 
     }
+
+    public function ambitUpdateCourse(Request $request) {
+
+        $course = Course::findOrFail($request->id);
+        
+        $course->update($request->all());
+    
+        return redirect()->route('course.show', $course->id)->with('success', 'Curso actualizado exitosamente');
+
+    }
+
+
+   
 }
