@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/ambit/store', [AmbitController::class, 'store'])->name('ambit.store');
     Route::get('/ambit/detail/{id}', [AmbitController::class, 'ambitDetail'])->name('ambit.detail');
     Route::get('/ambit/detail/course/{id}', [AmbitController::class, 'ambitDetailCourse'])->name('ambit.detail.course');
-    Route::put('/ambit/detail/course/{id}', [AmbitController::class, 'ambitUpdateCourse'])->name('ambit.update.course');
+    Route::post('/ambit/detail/course/{id}', [AmbitController::class, 'ambitUpdateCourse'])->name('ambit.update.course');
 
 
 
