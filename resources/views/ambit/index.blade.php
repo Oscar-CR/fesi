@@ -7,7 +7,15 @@
     <div class="bg-white rounded-lg shadow-lg p-6 ">
 
         <div class="flex justify-between items-center">
-            <h1 class="text-2xl font-bold ">{{ $ambit->name}} </h1>
+            <div class="flex">
+                <a href="{{ route('index')}}">
+                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <h1 class="text-2xl font-bold ">{{ $ambit->name}} </h1>
+            </div>
+                
             <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                 Agregar nuevo
             </button>
@@ -86,7 +94,9 @@
                             <ul class="list-disc list-inside">
                                 
                                 <li>  
-                                    <a href="{{ route('ambit.detail.course', ['id' => $course->course->id])}}">{{$course->course->name}} </a>
+                                    <a class="hover:text-blue-500" href="{{ route('ambit.detail.course', ['id' => $course->course->id])}}">
+                                        {{ $course->course->name }}
+                                    </a>
                                 </li>
                             </ul>
                         @endforeach

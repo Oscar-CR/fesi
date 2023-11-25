@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ambit;
+use App\Models\AmbitHasTheme;
 use App\Models\Course;
+use App\Models\ThemeHasCourse;
 use Illuminate\Http\Request;
 
 class AmbitController extends Controller
@@ -31,8 +33,9 @@ class AmbitController extends Controller
     public function ambitDetailCourse($id) {
 
         $course = Course::where('id', $id)->get()->first();
+        $ambit = AmbitHasTheme::where('theme_id', $course->themeHasCourse->theme_id)->get()->first();
 
-        return view('ambit.course', compact('course'));
+        return view('ambit.course', compact('course', 'ambit'));
 
     }
 

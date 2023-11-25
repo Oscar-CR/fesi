@@ -5,12 +5,23 @@
 <div class="container mx-auto mt-4 w-full">
 
     <div class="bg-white rounded-lg shadow-lg p-6 ">
-
-    <p class="font-bold text-2xl">
-        {{ $course->name }}
-    </p>
-        
-        
+    <div class="flex">
+        <a href="{{ route('ambit.detail', ['id' =>$ambit->ambit_id])}}">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <p class="font-bold text-2xl">
+            {{ $course->name }}
+        </p>
+    </div>
+    
+    @if(session('success'))
+        <div class="bg-green-200 text-green-800 p-4 mt-4 ">
+            {{ session('success') }}
+        </div>
+    @endif
+            
 
         <br>
 
@@ -35,7 +46,7 @@
                     <input type="text" id="sonodal2" name="sonodal2" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
                 <div>
-                    <label for="sonodal2" class="block mb-2  font-bold mb-2">Correo sinodal 1 (opcional):</label>
+                    <label for="sonodal2" class="block mb-2  font-bold mb-2">Correo sinodal 2 (opcional):</label>
                     <input type="text" id="sonodal2" name="sonodal2" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
 
@@ -122,7 +133,7 @@
             </div>
 
             <div class="mt-4">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2">Guardar</button>
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2">Guardar</button>
             </div>
         </form>
 

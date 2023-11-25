@@ -29,4 +29,9 @@ class Course extends Model
         'other',
     ];
 
+    public function themeHasCourse()
+    {
+        return $this->hasOne(ThemeHasCourse::class, 'course_id');
+    }
+
 }
