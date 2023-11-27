@@ -38,7 +38,7 @@
                 </div>
                 <div>
                     <label for="sonodal2" class="block mb-2  font-bold mb-2">Correo sinodal 1:</label>
-                    <input type="text" id="sonodal1" name="sonodal1" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sonodal1" name="sonodal1email" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
 
                 <div>
@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <label for="sonodal2" class="block mb-2  font-bold mb-2">Correo sinodal 2 (opcional):</label>
-                    <input type="text" id="sonodal2" name="sonodal2" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sonodal2" name="sonodal2email" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
 
                 <div>
@@ -56,7 +56,7 @@
                 </div>
                 <div>
                     <label for="sonodal3" class="block mb-2  font-bold mb-2">Correo sinodal 3 :</label>
-                    <input type="text" id="sonodal3" name="sonodal3" value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sonodal3" name="sonodal3email    " value="{{ $course->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
 
                 

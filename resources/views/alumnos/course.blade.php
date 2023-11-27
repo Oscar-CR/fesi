@@ -56,10 +56,6 @@
                 <td class="border border-black p-2"><label for="start" class="font-bold">8. HORARIO: </label></td>
                 <td class="border border-black p-2">{{ \Carbon\Carbon::parse($course->start)->format('Y-m-d\TH:i') }}</td>
             </tr>
-            <tr>
-                <td class="border border-black p-2"><label for="end" class="font-bold">Horario fin:</label></td>
-                <td class="border border-black p-2">{{ \Carbon\Carbon::parse($course->end)->format('Y-m-d\TH:i') }}</td>
-            </tr>
         
             <tr>
                 <td class="border border-black p-2"><label for="documents" class="font-bold">9. DOCUMENTOS A ENTREGAR: (COMPROBANTE DE INSCRIPCIÓN, IDENTIFICACIÓN OFICIAL, OTROS)</label></td>
