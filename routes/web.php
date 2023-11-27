@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AmbitController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -17,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('index');
+
+Route::get('/alumnos/calendario-de-examenes-extraordinario', [AlumnoController::class, 'index'])->name('alumno.index');
+Route::get('/alumnos/calendario-de-examenes-extraordinario/curso/{id}', [AlumnoController::class, 'course'])->name('alumno.course');
+Route::post('/alumnos/calendario-de-examenes-extraordinario/curso/descargar', [AlumnoController::class, 'download'])->name('alumno.course.download');
+
 
 Route::middleware('auth')->group(function () {
 

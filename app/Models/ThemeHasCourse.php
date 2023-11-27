@@ -15,4 +15,9 @@ class ThemeHasCourse extends Model
 
         return $this->belongsTo(Course::class, 'course_id');
     }
+
+    public function theme() {
+
+        return $this->belongsTo(Theme::class, 'theme_id');
+    }
 }
