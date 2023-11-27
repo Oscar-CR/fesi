@@ -15,16 +15,28 @@
         <table border="1" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
-                <td  style="width: 30%; text-align: center;"><label for="sonodal1" style="padding: 4px; font-weight: bold; font-size: 14px;">Asignatura:</label></td>
+                <td  style="width: 30%; text-align: center;"><label for="sinodal1" style="padding: 4px; font-weight: bold; font-size: 14px;">Asignatura:</label></td>
                 <td  style="width: 70%; text-align: center;" ><p  style="padding: 4px; font-weight: bold; font-size: 14px;">{{ $course->name }} ({{ $course->themeHasCourse->theme->name }})</p> </td>
             </tr>
             <tr>
-                <td  style="width: 30%; padding: 10px; font-weight: bold; font-size: 12px;"><label for="sonodal1" >1. SINODAL(ES): (NOMBRE COMPLETO)</label></td>
-                <td  style="width: 70%; padding: 10px; font-size: 14px;">{{ $course->name }} </td>
+                <td  style="width: 30%; padding: 10px; font-weight: bold; font-size: 12px;"><label for="sinodal1" >1. SINODAL(ES): (NOMBRE COMPLETO)</label></td>
+                <td  style="width: 70%; padding: 10px; font-size: 14px;">
+                    @if(count($course->courseHasSinodals) !=0)
+                        <p>{{$course->courseHasSinodals[0]->sinodals->name}}</p>
+                        <p>{{$course->courseHasSinodals[1]->sinodals->name}}</p>
+                        <p>{{$course->courseHasSinodals[2]->sinodals->name}}</p>
+                    @endif 
+                </td>
             </tr>
             <tr>
-                <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="sonodal2" class="font-bold" >2. CORREO ELECTRÓNICO:</label></td>
-                <td  style="padding: 10px; font-size: 14px;">{{ $course->name }}</td>
+                <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="sinodal2" class="font-bold" >2. CORREO ELECTRÓNICO:</label></td>
+                <td  style="padding: 10px; font-size: 14px;">
+                    @if(count($course->courseHasSinodals) !=0)
+                        <p>{{$course->courseHasSinodals[0]->sinodals->email}}</p>
+                        <p>{{$course->courseHasSinodals[1]->sinodals->email}}</p>
+                        <p>{{$course->courseHasSinodals[2]->sinodals->email}}</p>
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="date_test" class="font-bold" >3. FECHA DEL EXÁMEN</label></td>

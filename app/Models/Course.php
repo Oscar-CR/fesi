@@ -34,4 +34,8 @@ class Course extends Model
         return $this->hasOne(ThemeHasCourse::class, 'course_id');
     }
 
+    public function courseHasSinodals()
+    {
+        return $this->hasMany(CourseHasSinodal::class, 'course_id');
+    }
 }

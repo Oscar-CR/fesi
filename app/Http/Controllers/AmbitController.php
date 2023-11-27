@@ -42,20 +42,20 @@ class AmbitController extends Controller
     }
 
     public function ambitUpdateCourse(Request $request) {
-
+      
         $sindals = CourseHasSinodal::where('course_id', $request->id)->get();
 
-        if($sindals == null){
+        if(count($sindals) == 0){
 
-            $sinodal1 = Sinodal::where('email',$request->sonodal1email)->get()->first();
-            $sinodal2 = Sinodal::where('email',$request->sonodal2email)->get()->first();
-            $sinodal3 = Sinodal::where('email',$request->sonodal3email)->get()->first();
+            $sinodal1 = Sinodal::where('email',$request->sinodal1email)->get()->first();
+            $sinodal2 = Sinodal::where('email',$request->sinodal2email)->get()->first();
+            $sinodal3 = Sinodal::where('email',$request->sinodal3email)->get()->first();
 
 
             if($sinodal1 == null){
                 $create_sinodals = new Sinodal();
-                $create_sinodals->name = $request->sonodal1;
-                $create_sinodals->email = $request->sonodal1email;
+                $create_sinodals->name = $request->sinodal1;
+                $create_sinodals->email = $request->sinodal1email;
                 $create_sinodals->save();
 
                 $create_sinodal_course = new CourseHasSinodal();
@@ -66,8 +66,8 @@ class AmbitController extends Controller
 
             if($sinodal2 == null){
                 $create_sinodals2 = new Sinodal();
-                $create_sinodals2->name = $request->sonodal2;
-                $create_sinodals2->email = $request->sonodal1email;
+                $create_sinodals2->name = $request->sinodal2;
+                $create_sinodals2->email = $request->sinodal1email;
                 $create_sinodals2->save();
 
                 $create_sinodal_course2 = new CourseHasSinodal();
@@ -79,8 +79,8 @@ class AmbitController extends Controller
 
             if($sinodal3 == null){
                 $create_sinodals3 = new Sinodal();
-                $create_sinodals3->name = $request->sonodal3;
-                $create_sinodals3->email = $request->sonodal1email;
+                $create_sinodals3->name = $request->sinodal3;
+                $create_sinodals3->email = $request->sinodal1email;
                 $create_sinodals3->save();
 
                 $create_sinodal_course = new CourseHasSinodal();
@@ -90,15 +90,15 @@ class AmbitController extends Controller
             }
             
         }else{
-
-            $sinodal1 = Sinodal::where('email',$request->sonodal1email)->get()->first();
-            $sinodal2 = Sinodal::where('email',$request->sonodal2email)->get()->first();
-            $sinodal3 = Sinodal::where('email',$request->sonodal3email)->get()->first();
+           
+            $sinodal1 = Sinodal::where('email',$request->sinodal1email)->get()->first();
+            $sinodal2 = Sinodal::where('email',$request->sinodal2email)->get()->first();
+            $sinodal3 = Sinodal::where('email',$request->sinodal3email)->get()->first();
 
             if($sinodal1 == null){
                 $create_sinodals = new Sinodal();
-                $create_sinodals->name = $request->sonodal1;
-                $create_sinodals->email = $request->sonodal1email;
+                $create_sinodals->name = $request->sinodal1;
+                $create_sinodals->email = $request->sinodal1email;
                 $create_sinodals->save();
 
                 $sindals[0]->sinodal_id = $create_sinodals->id;
@@ -113,8 +113,8 @@ class AmbitController extends Controller
 
             if($sinodal2 == null){
                 $create_sinodals2 = new Sinodal();
-                $create_sinodals2->name = $request->sonodal2;
-                $create_sinodals2->email = $request->sonodal1email;
+                $create_sinodals2->name = $request->sinodal2;
+                $create_sinodals2->email = $request->sinodal1email;
                 $create_sinodals2->save();
 
                 $sindals[1]->sinodal_id = $create_sinodals2->id;
@@ -130,8 +130,8 @@ class AmbitController extends Controller
 
             if($sinodal3 == null){
                 $create_sinodals3 = new Sinodal();
-                $create_sinodals3->name = $request->sonodal3;
-                $create_sinodals3->email = $request->sonodal1email;
+                $create_sinodals3->name = $request->sinodal3;
+                $create_sinodals3->email = $request->sinodal1email;
                 $create_sinodals3->save();
 
                 $sindals[2]->sinodal_id = $create_sinodals3->id;

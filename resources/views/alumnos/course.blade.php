@@ -18,16 +18,28 @@
     <table class="border-collapse border border-black w-full mt-8" >
         <tbody>
             <tr>
-                <td class="border border-black p-2" style="width: 30%; text-align: center;"><label for="sonodal1" class="font-bold text-xl">Asignatura:</label></td>
+                <td class="border border-black p-2" style="width: 30%; text-align: center;"><label for="sinodal1" class="font-bold text-xl">Asignatura:</label></td>
                 <td class="border border-black p-2" style="width: 70%; text-align: center;" ><p class="font-bold text-xl">{{ $course->name }} ({{ $course->themeHasCourse->theme->name }})</p> </td>
             </tr>
             <tr>
-                <td class="border border-black p-2"><label for="sonodal1" class="font-bold" style="width: 30%;">1. SINODAL(ES): (NOMBRE COMPLETO)</label></td>
-                <td class="border border-black p-2" style="width: 70%;">{{ $course->name }} </td>
+                <td class="border border-black p-2"><label for="sinodal1" class="font-bold" style="width: 30%;">1. SINODAL(ES): (NOMBRE COMPLETO)</label></td>
+                <td class="border border-black p-2" style="width: 70%;"> 
+                    @if(count($course->courseHasSinodals) !=0)
+                        <p>{{$course->courseHasSinodals[0]->sinodals->name}}</p>
+                        <p>{{$course->courseHasSinodals[1]->sinodals->name}}</p>
+                        <p>{{$course->courseHasSinodals[2]->sinodals->name}}</p>
+                    @endif
+                </td>
             </tr>
             <tr>
-                <td class="border border-black p-2"><label for="sonodal2" class="font-bold">2. CORREO ELECTRÓNICO:</label></td>
-                <td class="border border-black p-2">{{ $course->name }}</td>
+                <td class="border border-black p-2"><label for="sinodal2" class="font-bold">2. CORREO ELECTRÓNICO:</label></td>
+                <td class="border border-black p-2">
+                    @if(count($course->courseHasSinodals) !=0)
+                        <p>{{$course->courseHasSinodals[0]->sinodals->email}}</p>
+                        <p>{{$course->courseHasSinodals[1]->sinodals->email}}</p>
+                        <p>{{$course->courseHasSinodals[2]->sinodals->email}}</p>
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td class="border border-black p-2"><label for="date_test" class="font-bold">3. FECHA DEL EXÁMEN</label></td>
