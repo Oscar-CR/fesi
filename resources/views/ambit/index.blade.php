@@ -17,7 +17,7 @@
             </div>
                 
             <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                Agregar nuevo
+                Agregar tema
             </button>
         </div>
         
@@ -34,7 +34,7 @@
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
-                    <form method="POST" action="" class="mt-4">
+                    <form method="POST" action="{{ route('ambit.theme.store', ['ambit_id' => $ambit->id]) }}" class="mt-4">
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -55,9 +55,6 @@
                             <label for="name" class="block">Nombre:</label>
                             <input type="text" id="name" name="name" class="border border-gray-300 rounded-md px-3 py-2 mt-1 mb-4 focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full">
 
-                            <label for="description" class="block">Descripción:</label>
-                            <textarea id="description" name="description" class="border border-gray-300 rounded-md px-3 py-2 mt-1 mb-4 focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full"></textarea>
-
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
@@ -70,11 +67,8 @@
             </div>
         </div>
     
-
-        
         <div class="w-full">
          
-
         @if($ambit->ambitHasTheme != null)
 
         @foreach($ambit->ambitHasTheme as $index => $theme)
@@ -82,9 +76,16 @@
                 <h2 id="accordion-flush-heading-{{$theme->id}}">
                     <button type="button" class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3 bg-sky-50 p-8" data-accordion-target="#accordion-flush-body-{{$index}}" aria-expanded="true" aria-controls="accordion-flush-body-{{$index}}">
                         <span class="text-xl font-bold">{{ $theme->theme->name }}</span>
+                        <div class="flex">
+                        <form method="POST" action="{{ route('ambit.theme.delete', ['theme_id' => $theme->id]) }}" class="mr-6">
+                            @csrf 
+                            <button type="submit"><svg fill="#870000" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.755,20.283,4,8H20L18.245,20.283A2,2,0,0,1,16.265,22H7.735A2,2,0,0,1,5.755,20.283ZM21,4H16V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V4H3A1,1,0,0,0,3,6H21a1,1,0,0,0,0-2Z"/></svg></button>
+                        </form>                            
                         <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                        </svg>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                            </svg>
+                        </div>
+                        
                     </button>
                 </h2>
 

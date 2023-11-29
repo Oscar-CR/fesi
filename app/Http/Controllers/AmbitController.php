@@ -7,8 +7,10 @@ use App\Models\AmbitHasTheme;
 use App\Models\Course;
 use App\Models\CourseHasSinodal;
 use App\Models\Sinodal;
+use App\Models\Theme;
 use App\Models\ThemeHasCourse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AmbitController extends Controller
 {
@@ -172,6 +174,30 @@ class AmbitController extends Controller
 
     }
 
+    public function ambitAddTheme(Request $request) {
+        
+        $create_theme = new Theme();
+        $create_theme->name = $request->name;
+        $create_theme->save();
+
+        $create_ambit_has_theme = new AmbitHasTheme();
+        $create_ambit_has_theme->theme_id = $create_theme->id;
+        $create_ambit_has_theme->ambit_id = $request->ambit_id;
+        $create_ambit_has_theme->save();
+
+        return back()->with('success', 'Tema creado exitosamente');
+
+    }
+
+    public function ambitDeleteTheme(Request $request) {
+        
+        DB::table('themes')->where('id',$request->theme_id)->update([
+            'status' => 0
+        ]);
+
+        return back()->with('success', 'Tema eliminado exitosamente');
+
+    }
 
    
 }

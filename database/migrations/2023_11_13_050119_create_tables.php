@@ -36,6 +36,7 @@ return new class extends Migration
         Schema::create('themes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
 
@@ -57,6 +58,7 @@ return new class extends Migration
             $table->longText('theme_references')->nullable(); 
             $table->longText('suggestion')->nullable(); 
             $table->longText('other')->nullable(); 
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
 
@@ -65,6 +67,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
 

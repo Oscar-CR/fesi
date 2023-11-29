@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/ambit/detail/course/{id}', [AmbitController::class, 'ambitUpdateCourse'])->name('ambit.update.course');
 
 
+    Route::post('/ambit/theme', [AmbitController::class, 'ambitAddTheme'])->name('ambit.theme.store');
+    Route::post('/ambit/theme/delete', [AmbitController::class, 'ambitDeleteTheme'])->name('ambit.theme.delete');
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
