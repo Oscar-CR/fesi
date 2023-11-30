@@ -15,10 +15,18 @@
                 </a>
                 <h1 class="text-2xl font-bold ">{{ $ambit->name}} </h1>
             </div>
-                
-            <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                Agregar tema
-            </button>
+            
+            <div class="flex">
+
+                <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                    Agregar tema
+                </button>
+
+                <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="ml-4 block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                    Eliminar tema
+                </button>
+            </div>
+            
         </div>
         
         <div class="separador mb-12"></div>
@@ -75,13 +83,15 @@
             <div id="accordion-flush-{{$index}}" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
                 <h2 id="accordion-flush-heading-{{$theme->id}}">
                     <button type="button" class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3 bg-sky-50 p-8" data-accordion-target="#accordion-flush-body-{{$index}}" aria-expanded="true" aria-controls="accordion-flush-body-{{$index}}">
-                        <span class="text-xl font-bold">{{ $theme->theme->name }}</span>
+                        <span class="text-xl font-bold w-full text-left">
+                            {{ $theme->theme->name }} 
+                        </span>
                         <div class="flex">
-                        <form method="POST" action="{{ route('ambit.theme.delete', ['theme_id' => $theme->id]) }}" class="mr-6">
+                        <!-- <form method="POST" action="{{ route('ambit.theme.delete', ['theme_id' => $theme->id]) }}" class="mr-6">
                             @csrf 
                             <button type="submit"><svg fill="#870000" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.755,20.283,4,8H20L18.245,20.283A2,2,0,0,1,16.265,22H7.735A2,2,0,0,1,5.755,20.283ZM21,4H16V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V4H3A1,1,0,0,0,3,6H21a1,1,0,0,0,0-2Z"/></svg></button>
-                        </form>                            
-                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        </form>    -->                         
+                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
                             </svg>
                         </div>
@@ -90,16 +100,32 @@
                 </h2>
 
                 <div id="accordion-flush-body-{{$index}}" class="hidden" aria-labelledby="accordion-flush-heading-{{$theme->id}}">
+
+                    <div class="flex justify-between">
+                        <p class="ml-8 mt-6 text-xl">Cursos disponibles:</p>
+                  
+                        <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2 mb-2">
+                            Agregar curso
+                        </button>
+                    </div>
                     <div class="py-5 border-b border-gray-200 dark:border-gray-700 p-8">
                         @foreach($theme->theme->themeHasCourse as $course)
-                            <ul class="list-disc list-inside">
-                                
-                                <li>  
-                                    <a class="hover:text-blue-500" href="{{ route('ambit.detail.course', ['id' => $course->course->id])}}">
-                                        {{ $course->course->name }}
-                                    </a>
-                                </li>
-                            </ul>
+                        <ul class="list-disc list-inside">
+                            <li class="flex justify-between items-center">
+                                <a class="hover:text-blue-500" href="{{ route('ambit.detail.course', ['id' => $course->course->id])}}">
+                                    {{ $course->course->name }}
+                                </a>
+                                <div class="flex">
+                                    <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="text-blue-700 mr-2" type="button">
+                                        Editar 
+                                    </button>
+
+                                    <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="text-red-700" type="button">
+                                        Eliminar 
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
                         @endforeach
                     </div>
                 </div>
