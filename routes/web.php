@@ -27,9 +27,14 @@ Route::post('/alumnos/calendario-de-examenes-extraordinario/curso/descargar', [A
 Route::middleware('auth')->group(function () {
 
     Route::post('/ambit/store', [AmbitController::class, 'store'])->name('ambit.store');
+    Route::post('/ambit/delete', [AmbitController::class, 'delete'])->name('ambit.delete');
+
     Route::get('/ambit/detail/{id}', [AmbitController::class, 'ambitDetail'])->name('ambit.detail');
+    Route::post('/ambit/detail/delete', [AmbitController::class, 'ambitDetailDelete'])->name('ambit.detail.delete');
+
     Route::get('/ambit/detail/course/{id}', [AmbitController::class, 'ambitDetailCourse'])->name('ambit.detail.course');
     Route::post('/ambit/detail/course/{id}', [AmbitController::class, 'ambitUpdateCourse'])->name('ambit.update.course');
+    Route::post('/ambit/detail/create', [AmbitController::class, 'ambitCreateCourse'])->name('ambit.create.course');
 
 
     Route::post('/ambit/theme', [AmbitController::class, 'ambitAddTheme'])->name('ambit.theme.store');

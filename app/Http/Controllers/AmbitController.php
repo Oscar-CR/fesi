@@ -26,12 +26,29 @@ class AmbitController extends Controller
 
     }
 
+    public function delete(Request $request) {
+
+        DB::table('ambits')->where('id',$request->id)->update([
+            'status' => 0
+        ]);
+
+        return back()->with('success', 'Ámbito eliminado exitosamente');
+    }
+
     public function ambitDetail($id) {
         
         $ambit = Ambit::where('id', $id)->get()->first();
-        
         return view('ambit.index', compact('ambit'));
 
+    }
+
+    public function ambitDetailDelete(Request $request) {
+
+        DB::table('themes')->where('id',$request->theme_id)->update([
+            'status' => 0
+        ]);
+
+        return back()->with('success', 'Tema eliminado exitosamente');
     }
 
     public function ambitDetailCourse($id) {
@@ -172,6 +189,21 @@ class AmbitController extends Controller
         return back()->with('success', 'Curso actualizado exitosamente');
 
 
+    }
+
+    public function ambitCreateCourse(Request $request)  {
+
+        return $request;
+        $create_course = new Course();
+        $create_course->name = $request->name;
+        $create_course->save();
+
+        $create_theme_has_course = new ThemeHasCourse();
+        $create_theme_has_course->theme_id = $request->theme_id;
+        $create_theme_has_course->theme_id = $create_course->id;
+        $create_theme_has_course->save();
+
+        return back()->with('success', 'Curso agregado exitosamente');
     }
 
     public function ambitAddTheme(Request $request) {

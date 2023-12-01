@@ -10,6 +10,8 @@ class HomeController extends Controller
     public function index()
     {
         $ambits = Ambit::where('status',1)->get();
-        return view('home', compact('ambits'));
+       
+        $ambits_list = Ambit::where('status',1)->get()->pluck( 'name', 'id');
+        return view('home', compact('ambits', 'ambits_list'));
     }
 }
