@@ -193,17 +193,34 @@ class AmbitController extends Controller
 
     public function ambitCreateCourse(Request $request)  {
 
-        return $request;
         $create_course = new Course();
         $create_course->name = $request->name;
         $create_course->save();
 
         $create_theme_has_course = new ThemeHasCourse();
         $create_theme_has_course->theme_id = $request->theme_id;
-        $create_theme_has_course->theme_id = $create_course->id;
+        $create_theme_has_course->course_id  = $create_course->id;
         $create_theme_has_course->save();
 
         return back()->with('success', 'Curso agregado exitosamente');
+    }
+
+    public function ambitEditCourse(Request $request) {
+
+        DB::table('courses')->where('id', $request->course_id)->update([
+            'name' => $request->name
+        ]);
+
+        return back()->with('success', 'Curso actualizado exitosamente');
+    }
+
+    public function ambitDeleteCourse(Request $request) {
+
+        DB::table('theme_has_course')->where('course_id', $request->course_id)->delete();
+
+        DB::table('courses')->where('id', $request->course_id)->delete();
+
+        return back()->with('success', 'Curso eliminado exitosamente');
     }
 
     public function ambitAddTheme(Request $request) {
