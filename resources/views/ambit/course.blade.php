@@ -34,29 +34,29 @@
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="sinodal1" class="block mb-2  font-bold mb-2">Sinodal 1:</label>
-                    <input type="text" id="sinodal1" name="sinodal1" value="{{ $course->courseHasSinodals[0]->sinodals->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sinodal1" name="sinodal1" value="{{ isset($course->courseHasSinodals[0]->sinodals->name)? $course->courseHasSinodals[0]->sinodals->name : '' }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
                 <div>
                     <label for="sinodal2" class="block mb-2  font-bold mb-2">Correo sinodal 1:</label>
-                    <input type="text" id="sinodal1" name="sinodal1email" value="{{ $course->courseHasSinodals[0]->sinodals->email }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sinodal1" name="sinodal1email" value="{{ isset($course->courseHasSinodals[0]->sinodals->email)? $course->courseHasSinodals[0]->sinodals->email : ''  }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
 
                 <div>
                     <label for="sinodal2" class="block mb-2  font-bold mb-2">Sinodal 2 (opcional):</label>
-                    <input type="text" id="sinodal2" name="sinodal2" value="{{ $course->courseHasSinodals[1]->sinodals->name }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sinodal2" name="sinodal2" value="{{  isset( $course->courseHasSinodals[1]->sinodals->name)?  $course->courseHasSinodals[1]->sinodals->name : '' }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
                 <div>
                     <label for="sinodal2" class="block mb-2  font-bold mb-2">Correo sinodal 2 (opcional):</label>
-                    <input type="text" id="sinodal2" name="sinodal2email" value="{{ $course->courseHasSinodals[1]->sinodals->email}}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sinodal2" name="sinodal2email" value="{{ isset($course->courseHasSinodals[1]->sinodals->email)? $course->courseHasSinodals[1]->sinodals->email : '' }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
 
                 <div>
                     <label for="sinodal3" class="block mb-2  font-bold mb-2">Sinodal 3 (opcional):</label>
-                    <input type="text" id="sinodal3" name="sinodal3" value="{{ $course->courseHasSinodals[1]->sinodals->name  }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sinodal3" name="sinodal3" value="{{ isset($course->courseHasSinodals[2]->sinodals->name)?$course->courseHasSinodals[1]->sinodals->name : ''    }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
                 <div>
                     <label for="sinodal3" class="block mb-2  font-bold mb-2">Correo sinodal 3 :</label>
-                    <input type="text" id="sinodal3" name="sinodal3email    " value="{{ $course->courseHasSinodals[2]->sinodals->email }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                    <input type="text" id="sinodal3" name="sinodal3email" value="{{  isset($course->courseHasSinodals[2]->sinodals->email)? $course->courseHasSinodals[2]->sinodals->email : ''  }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                 </div>
 
                 
