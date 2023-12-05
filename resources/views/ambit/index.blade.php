@@ -17,14 +17,15 @@
             </div>
             
             <div class="flex">
+                @role('admin')
+                    <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        Agregar tema
+                    </button>
 
-                <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                    Agregar tema
-                </button>
-
-                <button data-modal-target="static-modal-delete" data-modal-toggle="static-modal-delete" class="ml-4 block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                    Eliminar tema
-                </button>
+                    <button data-modal-target="static-modal-delete" data-modal-toggle="static-modal-delete" class="ml-4 block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        Eliminar tema
+                    </button>
+                @endrole('admin')
             </div>
             
         </div>
@@ -150,10 +151,11 @@
 
                     <div class="flex justify-between">
                         <p class="ml-8 mt-6 text-xl">Cursos disponibles:</p>
-                  
-                        <button data-modal-target="static-modal-add-course-{{$theme->id}}" data-modal-toggle="static-modal-add-course-{{$theme->id}}" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2 mb-2">
-                            Agregar curso
-                        </button>
+                        @role('admin')
+                            <button data-modal-target="static-modal-add-course-{{$theme->id}}" data-modal-toggle="static-modal-add-course-{{$theme->id}}" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2 mb-2">
+                                Agregar curso
+                            </button>
+                        @endrole('admin')
                     </div>
                     <div class="py-5 border-b border-gray-200 dark:border-gray-700 p-8">
                         @foreach($theme->theme->themeHasCourse as $course)
@@ -203,19 +205,20 @@
                                     {{ $course->course->name }}
                                 </a>
                                 <div class="flex">
-                                    <button data-modal-target="static-modal-edit-course-{{$course->id}}" data-modal-toggle="static-modal-edit-course-{{$course->id}}" class="text-blue-700 mr-2" type="button">
-                                        Editar 
-                                    </button>
-                                    <form class="form-delete"
-                                        action="{{ route('ambit.delete.course', ['course_id' => $course->course_id]) }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('POST')
-                                            <button  class="text-red-700" type="submit">
-                                                Eliminar 
-                                            </button>
-                                    </form>
-                                 
+                                    @role('admin')
+                                        <button data-modal-target="static-modal-edit-course-{{$course->id}}" data-modal-toggle="static-modal-edit-course-{{$course->id}}" class="text-blue-700 mr-2" type="button">
+                                            Editar 
+                                        </button>
+                                        <form class="form-delete"
+                                            action="{{ route('ambit.delete.course', ['course_id' => $course->course_id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('POST')
+                                                <button  class="text-red-700" type="submit">
+                                                    Eliminar 
+                                                </button>
+                                        </form>
+                                    @endrole('admin')
                                 </div>
                             </li>
                         </ul>

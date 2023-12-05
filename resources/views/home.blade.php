@@ -100,15 +100,18 @@
 
         <div class="flex justify-between items-center">
             <p class="text-gray-700 font-bold text-lg mb-4">Ámbitos</p>
-            <div class="flex"> <!-- Corrección: Clase 'flex' -->
-                <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                    Agregar nuevo ámbito
-                </button>
+            <div class="flex">
+                @role('admin')
+                    <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        Agregar nuevo ámbito
+                    </button>
 
-                <button data-modal-target="static-modal-delete" data-modal-toggle="static-modal-delete" class="ml-4 block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                    Eliminar ámbito
-                </button>
+                    <button data-modal-target="static-modal-delete" data-modal-toggle="static-modal-delete" class="ml-4 block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        Eliminar ámbito
+                    </button>
+                @endrole('admin')
             </div>
+          
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mt-8">
