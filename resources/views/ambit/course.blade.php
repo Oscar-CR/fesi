@@ -19,19 +19,23 @@
             </div>
             
             <div>
-                @if($course->available == 0)
-                    <form action="/ambit/detail/course/enable/" method="POST">
-                    @csrf
-                        <input type="hidden" name="course_id" value="{{$course->id}}"> 
-                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Habilitar Curso</button>
-                    </form>
-                @else
-                    <form action="/ambit/detail/course/disable/" method="POST">
-                    @csrf
-                        <input type="hidden" name="course_id" value="{{$course->id}}">
-                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Deshabilitar Curso</button>
-                    </form>
-                @endif
+                @role('admin')
+                    @if($course->available == 0)
+                        <form action="/course/enable/" method="POST">
+                        @csrf
+                        @method('POST')
+                            <input type="hidden" name="course_id" value="{{$course->id}}"> 
+                            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Habilitar Curso</button>
+                        </form>
+                    @else
+                        <form action="/course/disable/" method="POST">
+                        @csrf
+                        @method('POST')
+                            <input type="hidden" name="course_id" value="{{$course->id}}">
+                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Deshabilitar Curso</button>
+                        </form>
+                    @endif
+                @endrole('admin')
             </div>
         </div>
 

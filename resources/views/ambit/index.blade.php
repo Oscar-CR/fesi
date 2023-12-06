@@ -202,7 +202,19 @@
                         <ul class="list-disc list-inside">
                             <li class="flex justify-between items-center">
                                 <a class="hover:text-blue-500" href="{{ route('ambit.detail.course', ['id' => $course->course->id])}}">
-                                    {{ $course->course->name }}
+                                    <div class="flex">
+                                        <p class="mr-2">{{ $course->course->name }}</p>
+
+                                        @role('admin')
+                                            @if( $course->course->available ==1 )
+                                                <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Visible</span>
+                                            @else
+                                                <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">Oculto</span>
+                                            @endif
+                                        @endrole('admin')
+                                       
+                                    </div>
+                                    
                                 </a>
                                 <div class="flex">
                                     @role('admin')
