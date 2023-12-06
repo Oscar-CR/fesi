@@ -58,6 +58,7 @@ return new class extends Migration
             $table->longText('theme_references')->nullable(); 
             $table->longText('suggestion')->nullable(); 
             $table->longText('other')->nullable(); 
+            $table->tinyInteger('available')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

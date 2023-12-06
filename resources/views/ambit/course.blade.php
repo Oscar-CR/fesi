@@ -11,9 +11,31 @@
                 <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
-        <p class="font-bold text-2xl">
-            {{ $course->name }}
-        </p>
+        <div class="flex justify-between w-full">
+            <div>
+                <p class="font-bold text-2xl">
+                    {{ $course->name }}
+                </p>
+            </div>
+            
+            <div>
+                @if($course->available == 0)
+                    <form action="/ambit/detail/course/enable/" method="POST">
+                    @csrf
+                        <input type="hidden" name="course_id" value="{{$course->id}}"> 
+                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Habilitar Curso</button>
+                    </form>
+                @else
+                    <form action="/ambit/detail/course/disable/" method="POST">
+                    @csrf
+                        <input type="hidden" name="course_id" value="{{$course->id}}">
+                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Deshabilitar Curso</button>
+                    </form>
+                @endif
+            </div>
+        </div>
+
+        
     </div>
     
     @if(session('success'))
@@ -137,7 +159,7 @@
             </div>
         </form>
 
-
+       
     </div>
 </div>
 @endsection

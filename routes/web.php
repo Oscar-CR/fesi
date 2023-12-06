@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/ambit/detail/create', [AmbitController::class, 'ambitCreateCourse'])->name('ambit.create.course');
     Route::post('/ambit/detail/edit', [AmbitController::class, 'ambitEditCourse'])->name('ambit.edit.course');
     Route::post('/ambit/detail/delete', [AmbitController::class, 'ambitDeleteCourse'])->name('ambit.delete.course');
+    Route::post('/course/enable', [AmbitController::class, 'ambitUpdateEnableCourse'])->name('ambit.enable.course');
+    Route::post('/course/disable', [AmbitController::class, 'ambitUpdateDisableCourse'])->name('ambit.disable.course');
 
 
     Route::post('/ambit/theme', [AmbitController::class, 'ambitAddTheme'])->name('ambit.theme.store');

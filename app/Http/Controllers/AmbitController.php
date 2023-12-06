@@ -54,7 +54,13 @@ class AmbitController extends Controller
     public function ambitDetailCourse($id) {
 
         $course = Course::where('id', $id)->get()->first();
-        $ambit = AmbitHasTheme::where('theme_id', $course->themeHasCourse->theme_id)->get()->first();
+        if ($course !== null && $course->themeHasCourse !== null) {
+            $ambit = AmbitHasTheme::where('theme_id', $course->themeHasCourse->theme_id)->first();
+        }else{
+            $ambit = [];
+        }
+        
+        
 
         return view('ambit.course', compact('course', 'ambit'));
 
@@ -248,5 +254,23 @@ class AmbitController extends Controller
 
     }
 
+    public function ambitUpdateEnableCourse(Request $request) {
+
+        DB::table('courses')->where('id',$request->course_id)->update([
+            'available' => 1
+        ]);
+
+        return back()->with('success', 'El curso ahora es público');
+
+    }
    
+    public function ambitUpdateDisableCourse(Request $request) {
+
+        DB::table('courses')->where('id',$request->course_id)->update([
+            'available' => 0
+        ]);
+
+        return back()->with('success', 'El curso ahora es privado');
+
+    }
 }

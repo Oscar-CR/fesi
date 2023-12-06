@@ -28,14 +28,16 @@
                             
                             <div class="py-5 border-b border-gray-200 dark:border-gray-700 p-8">
                                 @foreach($theme->theme->themeHasCourse as $course)
-                                    <ul class="list-disc list-inside">
-                                        
-                                        <li>  
-                                            <a class="hover:text-blue-500" href="{{ route('alumno.course', ['id' => $course->course->id])}}">
-                                                {{ $course->course->name }}
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    @if( $course->course->available == 1)
+                                        <ul class="list-disc list-inside">
+                                            
+                                            <li>  
+                                                <a class="hover:text-blue-500" href="{{ route('alumno.course', ['id' => $course->course->id])}}">
+                                                    {{ $course->course->name }}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>     
