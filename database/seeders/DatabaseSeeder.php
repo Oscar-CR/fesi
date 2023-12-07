@@ -68,6 +68,42 @@ class DatabaseSeeder extends Seeder
             'user_type' => 'App\Models\User',
         ]);
 
+        $docentes = [
+            "Mayra A. Mora Miranda" => "mayra.mora@iztacala.unam.mx",
+            "Cristopher Tamayo Herrera" => "cristopher.tamayo@iztacala.unam.mx",
+            "Mariel Baca Carmona" => "mariel.baca@iztacala.unam.mx",
+            "Ana Karina García Santillán" => "karina.garcia@iztacala.unam.mx",
+            "Octavio Patiño García" => "octaviopg@iztacala.unam.mx",
+            "Mariela Flores Acosta" => "Mariela.flores@iztacala.unam.mx",
+            "Elsa Guadalupe López Morales" => "elsa.lopez@iztacala.unam.mx",
+            "Susana Meléndez Valenzuela" => "mvsusana@iztacala.unam.mx",
+            "Antonio Corona Gómez" => "a.corona@iztacala.unam.mx",
+            "Felicitas Salinas Anaya" => "felicitas.salinas@iztacala.unam.mx",
+            "Julia Chimal Pablo" => "julia.chimal@iztacala.unam.mx",
+            "Rodrigo Martínez Llamas" => "rodrigo.martinez@iztacala.unam.mx",
+            "Rosalia Vázquez Arévalo" => "rosalia.vazquez@iztacala.unam.mx",
+            "Marta Liliana Pérez Chavarría" => "martha.perez@iztacala.unam.mx",
+            "Angelica Irene Hernández González" => "angelica.hernandez@iztacala.unam.mx",
+            "Verónica Estela Flores Huerta" => "verónica.flores@iztacala.unam.mx",
+            "Elizabeth González Olea" => "Elizabeth.gonzalez@iztacala.unam.mx",
+            "José Moctezuma Salinas Torres" => "Moctezuma.salinas@iztacala.unam.mx",
+            "Wendy Nicolasa Vega Navarro" => "Wendy.vega@iztacala.unam.mx",
+            "Irma Fernández Sánchez" => "irma.fernandez@iztacala.unam.mx"
+        ];
+
+        foreach ($docentes as $nombre => $email) {
+            $create_user = new User();
+            $create_user->name = $nombre;
+            $create_user->email = $email;
+            $create_user->password = bcrypt('password');
+            $create_user->save();
+
+            DB::table('role_user')->insert([
+                'user_id' => $create_user->id,
+                'role_id' => 2,
+                'user_type' => 'App\Models\User',
+            ]);
+        }
 
         Ambit::create([
             'name' => 'ÁMBITO CLÍNICO',
