@@ -43,6 +43,12 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('sinodal1')->nullable();   
+            $table->string('sinodal1email')->nullable();   
+            $table->string('sinodal2')->nullable();   
+            $table->string('sinodal2email')->nullable();  
+            $table->string('sindal_name3')->nullable();   
+            $table->string('sindal_email3')->nullable();   
             $table->date('date_test')->nullable();
             $table->string('school_shift')->nullable();
             $table->string('classroom')->nullable();   
