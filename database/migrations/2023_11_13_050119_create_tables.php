@@ -47,8 +47,8 @@ return new class extends Migration
             $table->string('sinodal1email')->nullable();   
             $table->string('sinodal2')->nullable();   
             $table->string('sinodal2email')->nullable();  
-            $table->string('sindal_name3')->nullable();   
-            $table->string('sindal_email3')->nullable();   
+            $table->string('sinodal3')->nullable();   
+            $table->string('sinodal3email')->nullable();   
             $table->date('date_test')->nullable();
             $table->string('school_shift')->nullable();
             $table->string('classroom')->nullable();   

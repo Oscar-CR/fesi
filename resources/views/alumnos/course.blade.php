@@ -24,21 +24,17 @@
             <tr>
                 <td class="border border-black p-2"><label for="sinodal1" class="font-bold" style="width: 30%;">1. SINODAL(ES): (NOMBRE COMPLETO)</label></td>
                 <td class="border border-black p-2" style="width: 70%;"> 
-                    @if(count($course->courseHasSinodals) !=0)
-                        <p>{{$course->courseHasSinodals[0]->sinodals->name}}</p>
-                        <p>{{$course->courseHasSinodals[1]->sinodals->name}}</p>
-                        <p>{{$course->courseHasSinodals[2]->sinodals->name}}</p>
-                    @endif
+                    <p>{{ isset($course->sinodal1)? $course->sinodal1 : ''  }}</p>
+                    <p>{{ isset($course->sinodal2)? $course->sinodal2 : ''  }}</p>
+                    <p>{{ isset($course->sinodal3)? $course->sinodal3 : ''  }}</p>
                 </td>
             </tr>
             <tr>
                 <td class="border border-black p-2"><label for="sinodal2" class="font-bold">2. CORREO ELECTRÓNICO:</label></td>
                 <td class="border border-black p-2">
-                    @if(count($course->courseHasSinodals) !=0)
-                        <p>{{$course->courseHasSinodals[0]->sinodals->email}}</p>
-                        <p>{{$course->courseHasSinodals[1]->sinodals->email}}</p>
-                        <p>{{$course->courseHasSinodals[2]->sinodals->email}}</p>
-                    @endif
+                    <p>{{ isset($course->sinodal1email)? $course->sinodal1email : '' }}</p>
+                    <p>{{ isset($course->sinodal2email)? $course->sinodal2email : '' }}</p>
+                    <p>{{ isset($course->sinodal3email)? $course->sinodal3email : '' }}</p>
                 </td>
             </tr>
             <tr>

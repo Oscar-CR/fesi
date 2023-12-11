@@ -72,12 +72,13 @@ class AmbitController extends Controller
         
 
         DB::table('courses')->where('id', $request->course_id)->update([
+            
             'sinodal1' => $request->sinodal1,
             'sinodal1email' => $request->sinodal1email,
             'sinodal2' => $request->sinodal2,
             'sinodal2email' => $request->sinodal2email,
-            'sindal_name3' => $request->sindal_name3,
-            'sindal_email3' => $request->sindal_email3,
+            'sinodal3' => $request->sinodal3,
+            'sinodal3email' => $request->sinodal3email,
 
             'date_test' => $request->date_test,
             'school_shift' => $request->school_shift,
