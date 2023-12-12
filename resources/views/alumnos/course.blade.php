@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mx-auto mt-4 w-full bg-white  rounded-lg shadow-lg p-6">
-
+    @if($course->available == 1)
    
     <div class="flex">
         <a href="{{ url()->previous() }}">
@@ -46,8 +46,8 @@
                 <td class="border border-black p-2">{{ $course->school_shift }}</td>
             </tr>
             <tr>
-                <td class="border border-black p-2"><label for="school_shift" class="font-bold">5. BREVE INTRODUCCIÓN: (OPCIONAL)</label></td>
-                <td class="border border-black p-2">{{ $course->school_shift }}</td>
+                <td class="border border-black p-2"><label for="introduction" class="font-bold">5. BREVE INTRODUCCIÓN: (OPCIONAL)</label></td>
+                <td class="border border-black p-2">{{ $course->introduction }}</td>
             </tr>
 
             <tr>
@@ -108,7 +108,9 @@
         </form>
     </div>
     
-
+    @else
+        Curso no disponible
+    @endif
     
 </div>
 @endsection
