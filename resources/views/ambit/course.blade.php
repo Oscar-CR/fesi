@@ -159,9 +159,24 @@
                 </div>
             </div>
 
+            @if($course->name != null && $course->sinodal1 != null &&  $course->sinodal1email != null && 
+                $course->date_test != null && $course->school_shift != null && $course->classroom  != null && 
+                $course->start != null && $course->end != null && $course->introduction != null && 
+                $course->general_criteria != null && $course->documents != null && $course->works != null &&  
+                $course->work_criteria != null && $course->work_requeriment != null && $course->evaluation_criteria != null &&
+                $course->theme_references != null && $course->suggestion != null && $course->other != null )
+                @role('admin')                 
+                    <div class="mt-4">
+                        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2">Guardar</button>
+                    </div> 
+                @endrole('admin')
+            @else
             <div class="mt-4">
                 <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2">Guardar</button>
             </div>
+            @endif
+
+            
         </form>
 
        

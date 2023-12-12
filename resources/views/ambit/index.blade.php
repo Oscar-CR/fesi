@@ -200,17 +200,40 @@
                     
                         
                         <ul class="list-disc list-inside">
-                            <li class="flex justify-between items-center">
+                            <li class="flex justify-between items-center py-2">
                                 <a class="hover:text-blue-500" href="{{ route('ambit.detail.course', ['id' => $course->course->id])}}">
                                     <div class="flex">
                                         <p class="mr-2">{{ $course->course->name }}</p>
+                                            @if($course->course->name != null && $course->course->sinodal1 != null &&  $course->course->sinodal1email != null && 
+                                                $course->course->date_test != null && $course->course->school_shift != null && $course->course->classroom  != null && 
+                                                $course->course->start != null && $course->course->end != null && $course->course->introduction != null && 
+                                                $course->course->general_criteria != null && $course->course->documents != null && $course->course->works != null &&  
+                                                $course->course->work_criteria != null && $course->course->work_requeriment != null && $course->course->evaluation_criteria != null &&
+                                                $course->course->theme_references != null && $course->course->suggestion != null && $course->course->other != null )
+                                                <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Completado</span>
+                                            @elseif ($course->course->name != null && $course->course->sinodal1 == null &&  $course->course->sinodal1email == null && 
+                                                $course->course->date_test == null && $course->course->school_shift == null && $course->course->classroom  == null && 
+                                                $course->course->start == null && $course->course->end == null && $course->course->introduction == null && 
+                                                $course->course->general_criteria == null && $course->course->documents == null && $course->course->works == null &&  
+                                                $course->course->work_criteria == null && $course->course->work_requeriment == null && $course->course->evaluation_criteria == null &&
+                                                $course->course->theme_references == null && $course->course->suggestion == null && $course->course->other == null )
+                                                <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">Sin llenar</span>
 
-                                        @role('admin')
-                                            @if( $course->course->available ==1 )
-                                                <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Visible</span>
                                             @else
-                                                <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">Oculto</span>
+                                            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-600/20">No completado</span>
+
                                             @endif
+                                            <b class="ml-2"></b>
+                                        @role('admin')
+                                           
+                                            @if( $course->course->available ==1 )
+                                                <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20">Visible</span>
+                                            @else
+                                                <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-600/10">Oculto</span>
+                                            @endif
+                                          
+                                           
+
                                         @endrole('admin')
                                        
                                     </div>
