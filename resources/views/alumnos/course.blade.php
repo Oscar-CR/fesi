@@ -62,7 +62,7 @@
 
             <tr>
                 <td class="border border-black p-2"><label for="start" class="font-bold">8. HORARIO: </label></td>
-                <td class="border border-black p-2">{{ \Carbon\Carbon::parse($course->start)->format('Y-m-d\TH:i') }}</td>
+                <td class="border border-black p-2">{{ \Carbon\Carbon::parse($course->start)->format('Y-m-d\ H:i') . ' - ' .\Carbon\Carbon::parse($course->end)->format('Y-m-d H:i')  }}</td>
             </tr>
         
             <tr>

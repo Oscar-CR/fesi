@@ -21,21 +21,17 @@
             <tr>
                 <td  style="width: 30%; padding: 10px; font-weight: bold; font-size: 12px;"><label for="sinodal1" >1. SINODAL(ES): (NOMBRE COMPLETO)</label></td>
                 <td  style="width: 70%; padding: 10px; font-size: 14px;">
-                    @if(count($course->courseHasSinodals) !=0)
-                        <p>{{$course->courseHasSinodals[0]->sinodals->name}}</p>
-                        <p>{{$course->courseHasSinodals[1]->sinodals->name}}</p>
-                        <p>{{$course->courseHasSinodals[2]->sinodals->name}}</p>
-                    @endif 
+                    <p>{{ isset($course->sinodal1)? $course->sinodal1 : ''  }}</p>
+                    <p>{{ isset($course->sinodal2)? $course->sinodal2 : ''  }}</p>
+                    <p>{{ isset($course->sinodal3)? $course->sinodal3 : ''  }}</p>
                 </td>
             </tr>
             <tr>
                 <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="sinodal2" class="font-bold" >2. CORREO ELECTRÓNICO:</label></td>
                 <td  style="padding: 10px; font-size: 14px;">
-                    @if(count($course->courseHasSinodals) !=0)
-                        <p>{{$course->courseHasSinodals[0]->sinodals->email}}</p>
-                        <p>{{$course->courseHasSinodals[1]->sinodals->email}}</p>
-                        <p>{{$course->courseHasSinodals[2]->sinodals->email}}</p>
-                    @endif
+                    <p>{{ isset($course->sinodal1email)? $course->sinodal1email : '' }}</p>
+                    <p>{{ isset($course->sinodal2email)? $course->sinodal2email : '' }}</p>
+                    <p>{{ isset($course->sinodal3email)? $course->sinodal3email : '' }}</p>
                 </td>
             </tr>
             <tr>
@@ -48,7 +44,7 @@
             </tr>
             <tr>
                 <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="school_shift">5. BREVE INTRODUCCIÓN: (OPCIONAL)</label></td>
-                <td  style="padding: 10px; font-size: 14px;">{{ $course->school_shift }}</td>
+                <td  style="padding: 10px; font-size: 14px;">{{ $course->introduction }}</td>
             </tr>
 
             <tr>
@@ -62,12 +58,12 @@
             </tr>
 
             <tr>
-                <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="start">8. HORARIO: </label></td>
-                <td  style="padding: 10px; font-size: 14px;">{{ \Carbon\Carbon::parse($course->start)->format('Y-m-d\TH:i') }}</td>
+                <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="start">8. HORARIO INICIO: </label></td>
+                <td  style="padding: 10px; font-size: 14px;">{{ \Carbon\Carbon::parse($course->start)->format('Y-m-d H:i') }}</td>
             </tr>
             <tr>
-                <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="end" >Horario fin:</label></td>
-                <td  style="padding: 10px; font-size: 14px;">{{ \Carbon\Carbon::parse($course->end)->format('Y-m-d\TH:i') }}</td>
+                <td  style="padding: 10px; font-weight: bold; font-size: 12px;"><label for="end" >HORARIO FIN:</label></td>
+                <td  style="padding: 10px; font-size: 14px;">{{ \Carbon\Carbon::parse($course->end)->format('Y-m-d H:i') }}</td>
             </tr>
         
             <tr>
