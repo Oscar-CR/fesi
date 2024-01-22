@@ -204,19 +204,45 @@
                                 <a class="hover:text-blue-500" href="{{ route('ambit.detail.course', ['id' => $course->course->id])}}">
                                     <div class="flex">
                                         <p class="mr-2">{{ $course->course->name }}</p>
-                                            @if($course->course->name != null && $course->course->sinodal1 != null &&  $course->course->sinodal1email != null && 
-                                                $course->course->date_test != null && $course->course->school_shift != null && $course->course->classroom  != null && 
-                                                $course->course->start != null && $course->course->end != null && $course->course->introduction != null && 
-                                                $course->course->general_criteria != null && $course->course->documents != null && $course->course->works != null &&  
-                                                $course->course->work_criteria != null && $course->course->work_requeriment != null && $course->course->evaluation_criteria != null &&
-                                                $course->course->theme_references != null && $course->course->suggestion != null && $course->course->other != null )
+                                        @if(
+                                                filled($course->course->name) &&
+                                                filled($course->course->sinodal1) &&
+                                                filled($course->course->sinodal1email) &&
+                                                filled($course->course->date_test) &&
+                                                filled($course->course->school_shift) &&
+                                                filled($course->course->classroom) &&
+                                                filled($course->course->start) &&
+                                                filled($course->course->end) &&
+                                                filled($course->course->introduction) &&
+                                                filled($course->course->general_criteria) &&
+                                                filled($course->course->documents) &&
+                                                filled($course->course->works) &&
+                                                filled($course->course->work_criteria) &&
+                                                filled($course->course->work_requeriment) &&
+                                                filled($course->course->evaluation_criteria) &&
+                                                filled($course->course->theme_references) &&
+                                                filled($course->course->suggestion) &&
+                                                filled($course->course->other)
+                                            )
                                                 <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Completado</span>
-                                            @elseif ($course->course->name != null && $course->course->sinodal1 == null &&  $course->course->sinodal1email == null && 
-                                                $course->course->date_test == null && $course->course->school_shift == null && $course->course->classroom  == null && 
-                                                $course->course->start == null && $course->course->end == null && $course->course->introduction == null && 
-                                                $course->course->general_criteria == null && $course->course->documents == null && $course->course->works == null &&  
-                                                $course->course->work_criteria == null && $course->course->work_requeriment == null && $course->course->evaluation_criteria == null &&
-                                                $course->course->theme_references == null && $course->course->suggestion == null && $course->course->other == null )
+                                            @elseif (
+                                                    !filled($course->course->sinodal1) &&
+                                                    !filled($course->course->sinodal1email) &&
+                                                    !filled($course->course->date_test) &&
+                                                    !filled($course->course->school_shift) &&
+                                                    !filled($course->course->classroom) &&
+                                                    !filled($course->course->start) &&
+                                                    !filled($course->course->end) &&
+                                                    !filled($course->course->introduction) &&
+                                                    !filled($course->course->general_criteria) &&
+                                                    !filled($course->course->documents) &&
+                                                    !filled($course->course->works) &&
+                                                    !filled($course->course->work_criteria) &&
+                                                    !filled($course->course->work_requeriment) &&
+                                                    !filled($course->course->evaluation_criteria) &&
+                                                    !filled($course->course->theme_references) &&
+                                                    !filled($course->course->suggestion) &&
+                                                    !filled($course->course->other))
                                                 <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">Sin llenar</span>
 
                                             @else

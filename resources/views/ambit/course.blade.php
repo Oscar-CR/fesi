@@ -108,11 +108,11 @@
                         </div>
                         <div class="w-1/3 pr-4">
                             <label for="start" class="block  font-bold mb-2">Horario inicio:</label>
-                            <input type="datetime-local" id="start" name="start" value="{{ \Carbon\Carbon::parse($course->start)->format('Y-m-d\TH:i') }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                            <input type="datetime-local" id="start" name="start" value="{{ filled($course->start) ? \Carbon\Carbon::parse($course->start)->format('Y-m-d\TH:i') : '' }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                         </div>
                         <div class="w-1/3">
                             <label for="end" class="block text-lg font-bold mb-2">Horario fin:</label>
-                            <input type="datetime-local" id="end" name="end" value="{{ \Carbon\Carbon::parse($course->end)->format('Y-m-d\TH:i') }}" class="w-full border-gray-300 rounded-md px-4 py-2">
+                            <input type="datetime-local" id="end" name="end" value="{{ filled($course->end) ? \Carbon\Carbon::parse($course->end)->format('Y-m-d\TH:i') : '' }}" class="w-full border-gray-300 rounded-md px-4 py-2">
                         </div>
                     </div>
                 </div>
@@ -179,7 +179,66 @@
             
         </form>
 
+        <form class="form-clear"
+            action="{{ route('ambit.theme.clear', ['id' => $course->id]) }}"
+            method="POST">
+            @csrf
+            @method('POST')
+            <div class=" mx-6">
+                <button id="form-clear" type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white rounded-md px-4 py-2">Limpiar registros</button>
+            </div>
+        </form>
+        
        
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    console.log('aaaaaaa')
+    $(document).ready(function() {
+        $('.form-delete').submit(function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡El curso se eliminará permanentemente!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, eliminar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            });
+        });
+
+
+        $('.form-clear').submit(function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Los registros de este curso se limpiaran y tendrás que llenarlos de nuevo!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, limpiar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            });
+        });
+    });
+</script>
 @endsection

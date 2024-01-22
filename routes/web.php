@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/ambit/theme', [AmbitController::class, 'ambitAddTheme'])->name('ambit.theme.store');
     Route::post('/ambit/theme/delete', [AmbitController::class, 'ambitDeleteTheme'])->name('ambit.theme.delete');
+    Route::post('/ambit/theme/clear/{id}', [AmbitController::class, 'ambitClearTheme'])->name('ambit.theme.clear');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -179,4 +179,35 @@ class AmbitController extends Controller
         return back()->with('success', 'El curso ahora es privado');
 
     }
+
+    public function ambitClearTheme($id) {
+        
+        DB::table('courses')->where('id', $id)->update([
+            "sinodal1" => null,
+            "sinodal1email" => null,
+            "sinodal2" => null,
+            "sinodal2email" => null,
+            "sinodal3" => null,
+            "sinodal3email" => null,
+            "date_test" => null,
+            "school_shift" => null,
+            "classroom" => null,
+            "start" => null,
+            "end" => null,
+            "introduction" => null,
+            "general_criteria" => null,
+            "documents" => null,
+            "works" => null,
+            "work_criteria" => null,
+            "work_requeriment" => null,
+            "evaluation_criteria" => null,
+            "theme_references" => null,
+            "suggestion" => null,
+            "other" => null,
+            "available" => 0,
+            "status" => 1,
+        ]);
+        return back()->with('success', 'Curso limpiado correctamente');
+
+    }
 }
